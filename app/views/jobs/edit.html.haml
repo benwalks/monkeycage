@@ -1,0 +1,10 @@
+.container
+
+  = flash_messages
+  .text-center
+    %h2
+      = @job.work_request
+    %p
+      = @job.description
+
+  = render 'edit_form'

@@ -1,0 +1,46 @@
+-@jobs.each do |job|
+  .job-box.row
+    -if job.completed
+      =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-white','text-center'])
+    -elsif job.days_until_due <= 7
+      =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-red','text-center'])
+    -elsif job.days_until_due <= 14
+      =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-yellow','text-center'])
+    -elsif  job.days_until_due <= 21
+      =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-green','text-center'])
+    -else
+      =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-grey','text-center'])
+    .col-md-11.jobdetails
+      .row
+        .col-md-6.joboverview
+          = link_to job.work_request, edit_job_path(job)
+          |
+          %b
+            = job.description
+        .col-md-2
+          %b
+            Est:
+          = job.estimate_number
+        .col-md-2
+          %b
+            Wo:
+          = job.work_order
+        .col-md-2
+          %b
+            Due:
+          = due_date(job)
+      .row
+        .col-md-12
+          %b
+            Last note:
+          = job.last_note
+      .row
+        .col-md-12
+          %b
+            Next to do:
+          = job.next_task
+
+.col-md-12.text-center.archive-links.text-align-center
+  = link_to "archive", completed_path
+  |
+  = link_to "current", jobs_path

@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %title MonkeyCage
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %script(src= "https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+    %script(src= "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
+
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle Navigation
+            %span.icon-bar
+            %span.icon-bar
+          .navbar-brand
+            = link_to "MonkeyCage", root_path
+        .collapse.navbar-collapse#bs-navbar-collapse-1
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                = button_to "New Job", new_job_path, class: "button btn btn-warning navbar-btn", method: :get
+              %li
+                = link_to "Logout", destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to "Login", new_user_session_path
+              %li
+                = link_to "Register", new_user_registration_path
+
+    .container
+      = yield

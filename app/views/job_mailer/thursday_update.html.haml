@@ -1,0 +1,28 @@
+%html
+  %head
+
+  %body
+    %h2 It's update time for #{@user.email}
+
+    %table
+      %tr
+        %th Work Request
+        %th Percentage Complete
+        %th PFD
+        %th Description
+        %th Last Note
+        %th Next To Do
+      -@user.jobs.active.each do |job|
+        %tr
+          %td=job.work_request
+          %td=job.percentage_complete
+          %td=job.due_date.strftime("%d/%m/%Y")
+          %td=job.description
+          %td=job.last_note
+          %td=job.next_task
+
+    %p And that's it!
+
+    %p PS. #{@compliment}
+
+    %p Kind Regards,  Chief Monkey

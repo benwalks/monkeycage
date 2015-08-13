@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+  background-color: #F5F7FA;
+}
+
+.job-box {
+  background-color: #FFF;
+  margin: 20px 10px;
+  padding: 10px;
+}
+
+.edit-buttons {
+  margin: 20px;
+}
+
+#checklist {
+  margin: 30px 0px;
+}
+
+.checklist {
+  background-color: #FFF;
+  padding: 20px;
+}
+
+#deletebutton {
+  color: red;
+  margin-top: 20px;
+}
+
+.percent-white {
+  background-color: #FFF;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+  margin: auto;
+}
+.percent-red {
+  background-color: #E9573F;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+  margin: auto;
+}
+
+.percent-yellow {
+  background-color: #FFCE54;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+  margin: auto;
+}
+
+.percent-green {
+  background-color: #A0D468;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+  margin: auto;
+}
+
+.percent-grey {
+  background-color: #AAB2BD;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+  margin: auto;
+}
+
+.jobdetails {
+  padding-left: 2em;
+}
+
+.navbar-brand {
+  a {
+    font-weight: bold;
+    color: #FFF;
+  }
+}
+
+.form-wrapper {
+  width: 40%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  h2 {
+    text-align: center;
+  }
+  .btn {
+    text-align: center;
+  }
+  a {
+    text-align: center;
+  }
+}
+
+.shared-links {
+  padding-top: 10px;
+}
+
+.checklist {
+  .control-label {
+    text-align: left;
+  }
+  label {
+    width: 100%;
+  }
+  .checkbox {
+  float: left;
+  margin-right: 20px;
+  }
+}
+
+.radio-row {
+  margin-bottom: 5px;
+}

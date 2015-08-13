@@ -1,0 +1,66 @@
+= form_for @job do |f|
+
+  .row.text-center
+    %a.btn.btn-link.btn-xs{ data: { toggle: "collapse", target: "#wrform" }, id: "detailformbtn" }
+      Edit WR Details
+      %span.glyphicon.glyphicon-menu-down
+
+  .row.collapse#wrform
+    .form-wrapper
+      .form-group
+        = label_tag "Work Request"
+        = f.text_field :work_request, class: "form-control"
+      .form-group
+        = label_tag "Job Description"
+        = f.text_field :description, class: "form-control"
+      .form-group
+        = label_tag "Work Order"
+        = f.text_field :work_order, class: "form-control"
+      .form-group
+        = label_tag "Estimate Number"
+        = f.text_field :estimate_number, class: "form-control"
+      .form-group
+        = label_tag "Planned Finish Date"
+        = f.date_select :due_date, class: "form-control"
+
+  .row#checklist
+    .col-md-8.col-md-offset-2
+      .row
+        .col-md-5.checklist
+          = radio_cluster 'Scope Job', :scope_job
+          = radio_cluster 'Survey Job', :survey_job
+          = radio_cluster 'Design Maintenance', :design_maint
+          = radio_cluster 'Contact SMEs', :init_smes
+          = radio_cluster 'LV Drop & CATAN', :lv_drop_catan
+          = radio_cluster 'Design Calculations', :design_calcs
+          = radio_cluster 'Prelim Drawing', :prelim_dwg
+          = radio_cluster 'Check SMW Internals', :check_internals
+          = radio_cluster 'Peer Check', :peer_check
+          = radio_cluster 'Outage Management', :outage_manage
+          = radio_cluster "3P's Requested", :admin_emails
+          = radio_cluster 'Risk Assessments', :risk_assess
+          = radio_cluster 'Obtain Quotes', :obtain_quotes
+          = radio_cluster 'Estimate Complete', :estimate
+          = radio_cluster 'Approved Drawing', :approved_dwg
+          = radio_cluster 'Revalidation Requested', :revalidation
+          = radio_cluster "3P's Received", :admin_received
+          = radio_cluster 'Job Pegged', :peg_job
+          = radio_cluster 'Job Completed?', :completed
+
+        .col-md-5.col-md-offset-2
+          .form-group
+            = label_tag "Notes"
+            = f.text_area :notes, class: "form-control", rows: "20"
+          .form-group.text-center
+            = f.submit 'Update Notes', class: "btn btn-danger"
+
+
+
+  .form-group.text-center
+    = f.submit 'Update Job', class: "btn btn-danger"
+  .row
+    .col-md-12.text-center
+      = link_to "cancel", root_path
+  .row
+    .col-md-12.text-center
+      = link_to "Delete Job", job_path(@job), method: :delete, data: { confirm: "Are you sure you want to delete this job?" }, id: 'deletebutton'

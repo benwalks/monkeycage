@@ -1,0 +1,10 @@
+= fields_for job do |f|
+  .row.radio-row
+    .col-md-6
+      %h5= label
+    .col-md-6
+      = label_tag field, "Checked"
+      = f.radio_button field, "true"
+    -#.col-md-3
+      =# label_tag field, "n/a"
+      =# f.radio_button field, "false"

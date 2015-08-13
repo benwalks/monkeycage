@@ -1,0 +1,45 @@
+# Active jobs (have non-completed jobs)
+job_one:
+  work_request: 12345
+  work_order: 44444
+  description: Gud job
+  due_date: 24-06-15
+  notes: Working working working. Hmm, i can't continue now.
+  user_id: 12
+  completed: false
+
+job_two:
+  work_request: 67890
+  work_order: 55555
+  description: OK job
+  due_date: 29-06-15
+  notes: Working working working. Hmm, i can't continue now.
+  user_id: 12
+  completed: false
+
+job_three:
+  work_request: 112345
+  work_order: 44444
+  description: Good job
+  due_date: 13-06-15
+  notes: Working working working. Hmm, i can't continue now.
+  user_id: 12
+  completed: true
+
+job_four:
+  work_request: 000009
+  work_order: 111111
+  description: Gud job
+  due_date: 24-06-15
+  notes: Working working working. Jobs done.
+  user_id: 13
+  completed: true
+
+job_five:
+  work_request: 424242
+  work_order: 909090
+  description: Whatta job
+  due_date: 24-06-15
+  notes: Working working working. Jobs done.
+  user_id: 13
+  completed: true

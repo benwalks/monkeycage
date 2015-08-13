@@ -1,0 +1,18 @@
+.form-wrapper
+  = simple_form_for @job do |f|
+    .text-center
+      %h2 Create a New Job
+    .form-group
+      = f.input :work_request
+    .form-group
+      = f.input :description
+    .form-group
+      = f.input :work_order
+    .form-group
+      = f.input :estimate_number
+    .form-group
+      = f.input :due_date, as: :date
+    .text-center
+      = f.button :submit
+    .text-center
+      = link_to "cancel", root_path
