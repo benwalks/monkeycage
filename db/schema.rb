@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518232934) do
+ActiveRecord::Schema.define(version: 20150813110129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,32 +19,32 @@ ActiveRecord::Schema.define(version: 20150518232934) do
   create_table "jobs", force: :cascade do |t|
     t.string   "work_request"
     t.string   "estimate_number"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "work_order"
     t.string   "description"
     t.integer  "percentage_complete"
     t.datetime "due_date"
-    t.boolean  "scope_job",           default: false
-    t.boolean  "survey_job",          default: false
-    t.boolean  "risk_assess",         default: false
-    t.boolean  "init_smes",           default: false
-    t.boolean  "lv_drop_catan",       default: false
-    t.boolean  "design_calcs",        default: false
-    t.boolean  "prelim_dwg",          default: false
-    t.boolean  "check_internals",     default: false
-    t.boolean  "peer_check",          default: false
-    t.boolean  "outage_manage",       default: false
-    t.boolean  "obtain_quotes",       default: false
-    t.boolean  "estimate",            default: false
-    t.boolean  "approved_dwg",        default: false
-    t.boolean  "admin_emails",        default: false
-    t.boolean  "revalidation",        default: false
-    t.boolean  "admin_received",      default: false
-    t.boolean  "peg_job",             default: false
+    t.integer  "scope_job",           default: 0
+    t.integer  "survey_job",          default: 0
+    t.integer  "risk_assess",         default: 0
+    t.integer  "init_smes",           default: 0
+    t.integer  "lv_drop_catan",       default: 0
+    t.integer  "design_calcs",        default: 0
+    t.integer  "prelim_dwg",          default: 0
+    t.integer  "check_internals",     default: 0
+    t.integer  "peer_check",          default: 0
+    t.integer  "outage_manage",       default: 0
+    t.integer  "obtain_quotes",       default: 0
+    t.integer  "estimate",            default: 0
+    t.integer  "approved_dwg",        default: 0
+    t.integer  "admin_emails",        default: 0
+    t.integer  "revalidation",        default: 0
+    t.integer  "admin_received",      default: 0
+    t.integer  "peg_job",             default: 0
     t.text     "notes"
-    t.boolean  "design_maint",        default: false
-    t.boolean  "completed",           default: false
+    t.integer  "design_maint",        default: 0
+    t.integer  "completed",           default: 0
     t.integer  "user_id"
   end
 

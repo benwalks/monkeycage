@@ -3,11 +3,11 @@ class JobsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @jobs = current_user.jobs.completed(false).all.order("due_date asc")
+    @jobs = current_user.jobs.active.all.order("due_date asc")
   end
 
   def completed
-    @jobs = current_user.jobs.completed(true).all.order("due_date asc")
+    @jobs = current_user.jobs.completed.all.order("due_date asc")
   end
 
   def new

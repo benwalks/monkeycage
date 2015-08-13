@@ -1,20 +1,17 @@
 class Job < ActiveRecord::Base
   belongs_to :user
-  validates :work_request, presence: true, length: { minimum: 4, maximum: 16}
+  validates :work_request, presence: true, length: { minimum: 4, maximum: 16 }
 
-  scope :completed, -> (completed) { where completed: completed }
-  scope :active, -> { where completed: false }
+  scope :completed, -> { where completed: 2 }
+  scope :active, -> { where completed: [0, 1] }
 
   def days_until_due
-    due_days = ((self.due_date - Time.zone.now) / 1.day ).to_f
+    ((due_date - Time.zone.now) / 1.day).to_f
   end
 
   def last_note
-    if self.notes
-      self.notes.lines.last
-    else
-      "No notes yet"
-    end
+    return notes.lines.last if notes
+    'No notes yet'
   end
 
   def next_task
@@ -29,7 +26,7 @@ class Job < ActiveRecord::Base
                   "Risk Assessments", "Obtain Quotes", "Estimate", "Approved Drawing",
                   "Revalidate", "Receive Admin Approvals", "Peg Job"]
 
-    if task_index = job_tasks.index(false)
+    if task_index = job_tasks.index(0)
       task_names[task_index]
     else
       "Job's Done!"
@@ -37,10 +34,9 @@ class Job < ActiveRecord::Base
   end
 
   def percentage_complete
-    job_tasks_hash = attributes
-    true_count = job_tasks_hash.values.count(true).to_f
-    total_checklist_count = true_count + job_tasks_hash.values.count(false).to_f
-    percent_complete = ((true_count / total_checklist_count) * 100)
+    checked_count = attributes.values.count(2).to_f + attributes.values.count(1).to_f
+    total_checklist_count = checked_count + attributes.values.count(0).to_f
+    percent_complete = ((checked_count / total_checklist_count) * 100)
     # Round down to number divisible by 5
     (percent_complete - (percent_complete % 5)).round(0).to_s + '%'
   end

@@ -16,7 +16,7 @@ describe "Editing Projects" do
   end
 
   it "can edit a project" do
-    fill_in "Work Order", with: "80808080"
+    fill_in 'job_work_order', with: "80808080"
 
     click_button "Update Job"
 
@@ -24,7 +24,7 @@ describe "Editing Projects" do
   end
 
   it "won't update if attributes are invalid" do
-    fill_in "Work Request", with: ""
+    fill_in "job_work_request", with: ""
 
     click_button "Update Job"
 

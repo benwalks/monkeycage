@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'Viewing active jobs' do
   before do
-    job = FactoryGirl.create(:job, work_request: "981141", completed: false)
-    job_two = FactoryGirl.create(:job, work_request: "322134", completed: true)
-    user = FactoryGirl.create(:user, email: 'user@example.com',
+    FactoryGirl.create(:job, work_request: "981141", completed: 0)
+    FactoryGirl.create(:job, work_request: "322134", completed: 2)
+    FactoryGirl.create(:user, email: 'user@example.com',
                               password: 'secretpassword')
 
     visit '/'
@@ -21,7 +21,7 @@ describe 'Viewing active jobs' do
   it 'can set a job to completed' do
     click_link "981141"
 
-    check "Job Completed?"
+    choose "job_completed_2"
     click_button "Update Job"
     expect(page).to_not have_content("981141")
 

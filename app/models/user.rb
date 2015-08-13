@@ -7,11 +7,8 @@ class User < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
 
   def has_active_jobs
-    if self.jobs.active.empty?
-      false
-    else
-      true
-    end
+    return true if jobs.active.any?
+    false
   end
 
 end

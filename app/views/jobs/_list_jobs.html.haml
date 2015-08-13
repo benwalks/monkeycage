@@ -1,6 +1,6 @@
 -@jobs.each do |job|
   .job-box.row
-    -if job.completed
+    -if job.completed == 2
       =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-white','text-center'])
     -elsif job.days_until_due <= 7
       =content_tag(:div, job.percentage_complete, class: ['col-md-1','percent-red','text-center'])
